@@ -1,0 +1,70 @@
+# ==========================================
+# Media, Audio, Video, and Design Files
+# ==========================================
+# Images & Graphics (Uncompressed/Large)
+*.psd
+*.ai
+*.xcf
+*.raw
+*.tiff
+
+# Video Files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.flv
+*.webm
+
+# Audio Files
+*.mp3
+*.wav
+*.aac
+*.flac
+*.ogg
+*.m4a
+
+# Large Stock Media / Uploads Folders
+media/
+uploads/
+assets/large/
+video/
+audio/
+
+# ==========================================
+# Dependency Directories
+# ==========================================
+node_modules/
+jspm_packages/
+bower_components/
+
+# ==========================================
+# Build Outputs and Distribution
+# ==========================================
+dist/
+build/
+out/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.cache/
+
+# ==========================================
+# Development and Local Files
+# ==========================================
+.env
+.env.local
+.env.development.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# ==========================================
+# Editor and OS Files
+# ==========================================
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
