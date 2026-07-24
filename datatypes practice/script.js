@@ -1,3 +1,4 @@
+//permitive data tupes
 // string
 
 {let a= 'faizan';
@@ -39,3 +40,16 @@ obj[uid]="001";
 
 let a=123456789876543212345678n;
 
+//refrene datatypes
+
+// arrays
+
+let a=[1,2,3];
+
+//objects
+
+let a ={
+
+    name : "faizan"
+
+};
