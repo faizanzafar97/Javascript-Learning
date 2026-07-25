@@ -22,3 +22,27 @@ for(let i= 1 ;i<11;i++){
     console.log("5 x ",i," = ",i*5);
 
 }
+
+
+//while loop
+
+
+let i = 10;
+
+while(i>0){
+    console.log(i);
+    i--;
+}
+
+//print odd
+
+let i = 1;
+
+while(i<16){
+    if (i%2===1){
+        console.log(i);
+    }
+    i++;
+}
+
+
