@@ -51,4 +51,38 @@ function getscore(...val){
 }
 
 
-console.log(getscore(12,22,32,42,52,62,65));
+console.log(getscore(12,22,32,42,52,62,65)); 
+
+
+//pass a fuction into another function and execute it inside 
+
+
+function b(val){
+
+    val();
+
+}
+
+b(function(){
+
+    console.log("what's app ");
+})
+
+
+// closure fuction
+
+function c(){
+    let val=0;
+    return function(){
+
+        console.log(val);
+    };
+}
+
+
+//IFFE
+
+(function barking(){
+
+    console.log("dog barks");
+})();
