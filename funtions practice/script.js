@@ -79,6 +79,8 @@ function c(){
     };
 }
 
+let f=c();
+console.log(f());
 
 //IFFE
 
@@ -86,3 +88,14 @@ function c(){
 
     console.log("dog barks");
 })();
+
+
+
+//bmi calculator
+
+function bmi(w,h){
+
+    return w/(h*h);
+}
+
+console.log(bmi(34,6.7));
