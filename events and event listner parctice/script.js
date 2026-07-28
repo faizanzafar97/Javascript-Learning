@@ -24,3 +24,14 @@ if (input) {
         if(a.data!==null) console.log(a.data);
     });
 }
+
+// Select event
+let select =document.querySelector("select");
+let device=document.querySelector("#device");
+
+select.addEventListener("change",function(dets){
+
+    
+    device.textContent=`You have selected ${dets.target.value}`;   
+
+});
