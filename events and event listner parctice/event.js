@@ -7,6 +7,7 @@ button.addEventListener("click", function () {
 
 file.addEventListener("change", function (dets) {
 
-    button.textContent = dets.target.files[0].name;
-
+    const file =dets.target.files[0];
+    if (file){  button.textContent = file?.name;}
+   
 });
