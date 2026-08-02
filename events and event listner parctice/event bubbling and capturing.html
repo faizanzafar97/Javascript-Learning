@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+        }
+
+        #grandparent{
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        #parent{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #parent a{
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        #parent a:hover{
+            color: #007BFF;
+        }
+
+        #btn{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #btn:hover{
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #btn:active{
+            transform: scale(0.98);
+        }
+        ul{
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    list-style-position: inside;
+}
+
+ul li{
+    list-style: none;
+    padding: 12px;
+    margin: 8px 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+ul li:hover{
+    background: #dbeafe;
+}
+
+.lt{
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.7;
+}
+.a{
+    width: 500px;
+    height: 350px;
+    background: #ff6b6b;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.b{
+    width: 350px;
+    height: 220px;
+    background: #4dabf7;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c{
+    width: 200px;
+    height: 120px;
+    background: #51cf66;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn{
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #212529;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn:hover{
+    background: #000;
+    transform: scale(1.05);
+}
+
+#btn:active{
+    transform: scale(0.95);
+}
+ .lt{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div id="grandparent">
+        <div id="parent">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Info</a>
+            <button id="btn">Click Me</button>
+        </div>
+    </div> -->
+    <!-- <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+
+    </ul> -->
+
+    <div class="a">
+        <div class="b" >
+            <div class="c">
+                <button id="btn">Click Me</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="bubbling.js"></script>
+</body>
+</html>
