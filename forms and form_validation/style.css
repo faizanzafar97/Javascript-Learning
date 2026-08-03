@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Adding a beautiful gradient background */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.validator-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 16px; /* Softer, more modern corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(10px); /* Slight glass effect */
+}
+
+.validator-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2d3748;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f7fafc;
+    color: #2d3748;
+    /* Smooth transitions for all interactive states */
+    transition: all 0.3s ease; 
+}
+
+/* 
+   INTERACTIVE FOCUS STATE
+   Makes the input glow and stand out when the user types
+*/
+.input-group input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.input-group input:focus + .error-message {
+    opacity: 0.7; /* Dims error slightly when typing */
+}
+
+/* 
+   JAVASCRIPT TARGET CLASSES
+   Your JS will trigger these beautiful interactive states
+*/
+.input-group input.success {
+    border-color: #48bb78;
+    background-color: #f0fff4;
+    box-shadow: 0 0 0 4px rgba(72, 187, 120, 0.15);
+}
+
+.input-group input.error {
+    border-color: #f56565;
+    background-color: #fff5f5;
+    box-shadow: 0 0 0 4px rgba(245, 101, 101, 0.15);
+    /* Triggers the shake keyframes defined below */
+    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.error-message {
+    display: block;
+    color: #f56565;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* 
+   INTERACTIVE BUTTON
+   Gradients, hover lifts, and active press states
+*/
+button {
+    width: 100%;
+    padding: 0.85rem;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px); /* Lifts the button up */
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+button:active {
+    transform: translateY(1px); /* Simulates the button being pressed down */
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+}
+
+/* 
+   ANIMATIONS
+   This keyframe creates a slight side-to-side shake for invalid inputs 
+*/
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
