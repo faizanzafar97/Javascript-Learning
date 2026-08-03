@@ -3,11 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Live Character Counter</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .container{
+            width:420px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 15px 35px rgba(0,0,0,.2);
+            text-align:center;
+            transition:.3s;
+        }
+
+        .container:hover{
+            transform:translateY(-8px);
+            box-shadow:0 20px 40px rgba(0,0,0,.3);
+        }
+
+        h1{
+            margin-bottom:20px;
+            color:#333;
+            font-size:28px;
+        }
+
+        input{
+            width:100%;
+            padding:15px;
+            border:2px solid #667eea;
+            border-radius:10px;
+            font-size:18px;
+            outline:none;
+            transition:.3s;
+        }
+
+        input:focus{
+            border-color:#764ba2;
+            box-shadow:0 0 10px rgba(118,75,162,.4);
+        }
+
+        .counter{
+            margin-top:20px;
+            font-size:22px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        span{
+            color:#667eea;
+            transition:.3s;
+        }
+
+        p{
+            margin-top:12px;
+            color:#777;
+            font-size:14px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" placeholder="Type something...">
-    <h1>Characters Left : <span id="charCount">20</span></h1>
+
+    <div class="container">
+        <h1>📝 Live Character Counter</h1>
+
+        <input
+            type="text"
+            placeholder="Start typing..."
+        >
+
+        <div class="counter">
+            Characters Left:
+            <span>20</span>
+        </div>
+
+        <p>Maximum allowed characters: 20</p>
+    </div>
+
     <script src="live_character_counter.js"></script>
+
 </body>
 </html>
