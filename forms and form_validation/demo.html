@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Interactive Form</title>
+    
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Centers the form on the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Beautiful gradient background */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        /* --- Form Container --- */
+        form {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Evenly spaces the inputs */
+            
+            /* Smooth entrance animation */
+            animation: slideUp 0.6s ease-out;
+        }
+
+        /* --- Input, Select & Textarea Fields --- */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #1e293b;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+            font-family: inherit; /* Ensures textarea matches the font */
+        }
+
+        /* Specific styles for Textarea */
+        textarea {
+            resize: vertical; /* Allows user to make it taller, but not wider */
+            min-height: 120px; /* Gives it a good starting height */
+        }
+
+        /* Custom dropdown arrow for selects */
+        select {
+            appearance: none; /* Hides default browser arrow */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            cursor: pointer;
+        }
+
+        /* --- Interactive States (Hover & Focus) --- */
+        input:hover,
+        select:hover,
+        textarea:hover {
+            border-color: #cbd5e1;
+            background-color: #ffffff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: #ffffff;
+            /* Soft glow effect when focused */
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15); 
+        }
+
+        /* Styling the placeholder text */
+        ::placeholder {
+            color: #94a3b8;
+            opacity: 1;
+        }
+
+        /* --- Submit Button --- */
+        input[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Button Interactive States */
+        input[type="submit"]:hover {
+            transform: translateY(-2px); /* Lifts the button slightly */
+            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(1px); /* Pushes the button down when clicked */
+            box-shadow: 0 2px 10px rgba(118, 75, 162, 0.3);
+        }
+
+        /* --- Animations --- */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <input id="name" type="text" placeholder="Enter your name">
+        
+        <input id="email" type="email" placeholder="Enter your email">
+        
+        <input id="password" type="password" placeholder="Enter your password">
+        
+        <select>
+            <option value="">Select your country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+        </select>
+
+        <select>
+            <option value="">Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <!-- Added Textarea Here -->
+        <textarea placeholder="Enter your message or comments"></textarea>
+
+        <input type="submit" value="Submit">
+    </form> 
+
+    <script src="form_validation.js"></script>
+</body>
+</html>
