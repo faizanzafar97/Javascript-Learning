@@ -23,4 +23,4 @@ let div=document.querySelector(".progress-wrapper");
 
 let st=setInterval(()=>{
     div.style.display="none";
-},sec*1000/100);GPUCommandBuffer
+},sec*1000/100);
