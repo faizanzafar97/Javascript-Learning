@@ -5,7 +5,7 @@ let form = document.querySelector("#validatorForm");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 1. Grab elements that will hold the error text
+    
     let emailErrorElement = document.querySelector("#emailError");
     let passwordErrorElement = document.querySelector("#passwordError");
 
@@ -31,18 +31,18 @@ form.addEventListener("submit", (e) => {
     }
 
     if (!isEmailValid) {
-        // Now correctly targeting the ID from your HTML
+        
         emailErrorElement.textContent = "Please enter a valid email address.";
     }
 
     if (!isPasswordValid) {
-        // Now correctly targeting the ID from your HTML
+        
         passwordErrorElement.textContent = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.";
     }
 
-    // 6. Success!
+   
     if (isEmailValid && isPasswordValid) {
         alert("Success! Form is valid.");
-        // You can submit the form data to a server here
+        
     }
 });
