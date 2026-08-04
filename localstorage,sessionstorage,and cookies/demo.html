@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Switcher</title>
+
+<style>
+:root{
+    --bg-light:#ffffff;
+    --text-light:#1a1a1a;
+    --btn-light:#3b82f6;
+    --btn-light-hover:#2563eb;
+
+    --bg-dark:#1e1e1e;
+    --text-dark:#f5f5f5;
+    --btn-dark:#a855f7;
+    --btn-dark-hover:#9333ea;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    transition:.4s;
+}
+
+body.light{
+    background:var(--bg-light);
+    color:var(--text-light);
+    --btn-bg:var(--btn-light);
+    --btn-hover:var(--btn-light-hover);
+}
+
+body.dark{
+    background:var(--bg-dark);
+    color:var(--text-dark);
+    --btn-bg:var(--btn-dark);
+    --btn-hover:var(--btn-dark-hover);
+}
+
+button{
+    padding:12px 24px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    background:var(--btn-bg);
+    transition:.3s;
+}
+
+button:hover{
+    background:var(--btn-hover);
+    transform:translateY(-3px);
+}
+
+button:active{
+    transform:translateY(2px);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Welcome to my Website</h1>
+<p>Click the button to change the theme.</p>
+
+<button id="themeBtn">Switch Theme</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
