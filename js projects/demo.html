@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Glass Profile Cards</title>
+
+    <style>
+        /* =========================================
+           1. Global Resets & Body Setup
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Changed align-items to flex-start so a large grid can scroll properly */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+            font-family: "Helvetica Neue", sans-serif;
+        }
+
+        /* =========================================
+           2. Layout Utility Classes
+           ========================================= */
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .flex-wrap { flex-wrap: wrap; }
+        .gap-10 { gap: 30px; /* Adjusted slightly for better grid spacing */ }
+        
+        .main-container {
+            width: 100%;
+            max-width: 1200px; /* Prevents it from stretching too wide on huge monitors */
+        }
+
+        /* =========================================
+           3. Interactive Search Box
+           ========================================= */
+        input[type="text"] {
+            width: 260px;
+            padding: 16px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input[type="text"]::placeholder {
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            width: 320px;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        input[type="text"]:focus::placeholder {
+            color: #bbb;
+        }
+
+        /* =========================================
+           4. Card Styles & Animations
+           ========================================= */
+        .card {
+            position: relative;
+            width: 220px;
+            height: 320px;
+            overflow: hidden;
+            border-radius: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .card:hover .bg-img {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           5. Blurred Gradient Overlay
+           ========================================= */
+        .blurred-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px);
+            opacity: 0.85;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 65%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 65%);
+        }
+
+        .card:hover .blurred-layer {
+            opacity: 1;
+        }
+
+        /* =========================================
+           6. Text Content Reveal
+           ========================================= */
+        .content {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            color: #fff;
+            z-index: 2;
+            transform: translateY(10px);
+            opacity: 0.8;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .card:hover .content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .content h3 {
+            margin-bottom: 6px;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+        }
+
+       .content p {
+        font-size: 14px;
+        color: #ddd;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2; /* Add this standard property */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container flex flex-col items-center gap-10">
+        
+        <!-- Search Input -->
+        <input type="text" placeholder="Search profiles..." id="search-input">
+
+        <!-- Target Container for JavaScript -->
+        <div id="card-container" class="flex gap-10 flex-wrap justify-center">
+            <!-- JavaScript will inject cards here automatically -->
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
