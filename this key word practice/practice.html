@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dark UI</title>
+
+    <style>
+        /* --- CSS Reset --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* --- Form Container --- */
+        .form-container {
+            background-color: #212121;
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #eeeeee;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #aaaaaa;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            background-color: #333333;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 12px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #777777;
+            background-color: #3a3a3a;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #4a4a4a;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Cards Container --- */
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* --- User Card --- */
+        .user-card {
+            background-color: #212121;
+            padding: 30px 20px;
+            border-radius: 12px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .user-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .user-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 2px solid #333333;
+            transition: border-color 0.3s ease;
+        }
+
+        .user-card:hover img {
+            border-color: #777777;
+        }
+
+        .user-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #eeeeee;
+        }
+
+        .user-card .role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #aaaaaa;
+            margin-bottom: 16px;
+        }
+
+        .user-card .bio {
+            font-size: 13px;
+            color: #888888;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Add User Form -->
+    <div class="form-container">
+
+        <h2>Add User</h2>
+
+        <form id="userForm">
+
+            <div class="input-group">
+                <label for="nameInput">Name</label>
+                <input
+                    type="text"
+                    id="nameInput"
+                    required
+                    placeholder="e.g. Sarah Connor"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="roleInput">Role</label>
+                <input
+                    type="text"
+                    id="roleInput"
+                    required
+                    placeholder="e.g. Data Scientist"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="bioInput">Bio</label>
+                <textarea
+                    id="bioInput"
+                    required
+                    placeholder="Write a short bio..."
+                ></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="photoInput">Photo URL</label>
+                <input
+                    type="url"
+                    id="photoInput"
+                    required
+                    placeholder="https://..."
+                >
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- User Profile Cards -->
+    <div class="cards-container" id="cardsContainer"></div>
+
+
+    <script src="practice.js"></script>
+
+</body>
+
+</html>
+
