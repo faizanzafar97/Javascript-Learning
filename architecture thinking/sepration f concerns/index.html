@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Random Addition Generator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        .container {
+            width: 420px;
+            padding: 35px;
+
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px 20px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #3b82f6;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result-title {
+            margin-top: 25px;
+            margin-bottom: 12px;
+
+            font-size: 15px;
+            color: #cbd5e1;
+        }
+
+        ul {
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        li {
+            padding: 12px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            transition: 0.3s ease;
+        }
+
+        li:hover {
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Random Addition</h1>
+
+        <p class="description">
+            Generate two random numbers and calculate their sum.
+        </p>
+
+        <!-- Keep this button because JS selects it using querySelector("button") -->
+        <button>
+            Add Random Numbers
+        </button>
+
+        <p class="result-title">
+            Generated Results
+        </p>
+
+        <!-- Keep this ul because JS selects it using querySelector("ul") -->
+        <ul></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
